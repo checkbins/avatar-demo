@@ -1,0 +1,3 @@
+[submodule "checkbin-python"]
+	path = checkbin-python
+	url = https://github.com/synth-inc/checkbin-python.git

@@ -1,0 +1,82 @@
+[
+    {
+        "prompt": "photo of TOKEN man as a cosmic explorer standing on an alien planet, surrounded by glowing flora and strange rock formations. The style is reminiscent of Moebius and H. R. Giger, with a blend of surreal and science fiction elements, soft shading, muted colors, highly detailed landscape, atmospheric lighting, artstation, intricate textures, ethereal, full body portrait.",
+        "negative_prompt": "cartoon, 3d render, low quality, blurry, pixelated, grainy, photorealistic, oversaturated, low detail, dull colors, flat lighting, amateur sketch, minimalist, blocky, childish"
+    },
+    {
+        "prompt": "photo of TOKEN man as an ancient Greek philosopher, draped in a toga, with thoughtful expression, set against a classical marble background. In the style of Renaissance oil painting by Rembrandt, Caravaggio, and Leonardo da Vinci, dramatic lighting, chiaroscuro, highly detailed skin textures, realistic folds in fabric, golden highlights, smooth brushstrokes, rich, muted colors.",
+        "negative_prompt": "cartoon, 3d render, digital art, anime, futuristic, sci-fi, modern, flat colors, cell shading, glowing, neon, overexposed, blurred details, rough sketch, vector art, low detail"
+    },
+    {
+        "prompt": "photo of TOKEN man as a cyberpunk hacker in a dark, neon-lit cityscape, surrounded by futuristic technology and holographic screens. Influences from Beeple and Katsuhiro Otomo, intense neon colors, glows, and reflective surfaces, bold contrasts, highly detailed, concept art, dynamic composition, digital illustration, artstation, smooth and crisp lines.",
+        "negative_prompt": "oil painting, watercolor, pastel, soft lighting, muted colors, vintage, medieval, gothic, classical, pencil sketch, impressionist, realistic portrait, traditional art, childish, low quality, flat colors"
+    },
+    {
+        "prompt": "photo of TOKEN man as a Victorian-era detective, dressed in a long trench coat and holding a magnifying glass, in a foggy London street at night. The art style is inspired by James Gurney and Edward Hopper, oil painting, soft and diffused lighting, rich textures, attention to facial expressions, full-body portrait, sharp focus on the eyes, muted and atmospheric colors.",
+        "negative_prompt": "cartoon, digital art, anime, neon, sci-fi, glowing elements, futuristic, modern clothing, 3d render, blocky, harsh lines, flat shading, photorealistic, bright colors, pop art"
+    },
+    {
+        "prompt": "photo of TOKEN man as a fairy-tale sorceress with long flowing hair, surrounded by magical elements like glowing orbs and enchanted flora. Illustrated in a style influenced by Yoshitaka Amano and Kay Nielsen, highly detailed, delicate linework, pastel and jewel tones, whimsical, ethereal, dreamlike, intricate details in dress and background.",
+        "negative_prompt": "photo realistic, 3d render, cell shading, blocky, glossy finish, grainy, low detail, harsh lighting, flat colors, gritty, monochromatic, modern, futuristic, sci-fi, dark and muted tones"
+    },
+    {
+        "prompt": "photo of TOKEN man as a comic book superhero, posed dramatically against a cityscape at dusk, with cape flowing in the wind. The art style combines elements of Jim Lee, Alex Ross, and Frank Miller, dynamic poses, intense lighting and shading, high contrast, highly detailed, sharp lines, artstation, bold colors, strong focus on muscular structure and facial features.",
+        "negative_prompt": "photo realistic, oil painting, pastel, soft brushstrokes, pencil sketch, watercolor, vintage, futuristic armor, realistic textures, 3d render, blurred lines, dull colors, classical painting, minimalist, gothic"
+    },
+    {
+        "prompt": "photo of TOKEN man as a medieval knight in shining armor, holding a sword in one hand, standing before a castle under a stormy sky. Inspired by Howard Pyle and N. C. Wyeth, detailed oil painting, rich textures in metal and fabric, realistic facial features, dynamic composition, full-body portrait, dramatic lighting with intense shadows, muted and earthy colors.",
+        "negative_prompt": "cartoon, 3d render, anime, sci-fi, futuristic, modern, neon, pop art, cell shading, low detail, overexposed lighting, grayscale, abstract, minimalist, sketch, childish"
+    },
+    {
+        "prompt": "photo of TOKEN man as an interstellar bounty hunter, wearing futuristic armor and holding a plasma weapon, standing in a futuristic space station. The art style is a mix of Mass Effect concept art and Star Wars illustrations, highly detailed, sharp focus, bright metallic colors, smooth and reflective surfaces, digital painting, artstation, epic science fiction composition.",
+        "negative_prompt": "oil painting, pastel, watercolor, sketchy, blurred details, traditional art, vintage, impressionist, muted colors, soft shading, realistic portrait, classical, renaissance, old-fashioned, gritty, childish"
+    },
+    {
+        "prompt": "photo of TOKEN man as an 18th-century aristocrat, dressed in opulent clothing with intricate lace and embroidery, set against a richly decorated ballroom. Art style influenced by Thomas Gainsborough and François Boucher, detailed face, intricate clothing textures, realistic folds in fabric, smooth brushstrokes, delicate highlights, pastel colors, classical painting, soft lighting.",
+        "negative_prompt": "cartoon, digital art, cell shading, 3d render, anime, futuristic, sci-fi, modern, blocky, flat colors, glowing, neon, oversaturated, low quality, sketch, low detail"
+    },
+    {
+        "prompt": "photo of TOKEN man as a steampunk airship captain, wearing a tailored vest, goggles on the forehead, and standing at the helm of a grand airship floating above a cloud-filled sky. In the style of Shaun Tan and James Christensen, intricate mechanical details, rich colors, full-body portrait, concept art, dynamic composition, vivid lighting, highly detailed background, fantastical and imaginative.",
+        "negative_prompt": "cartoon, anime, flat colors, bright neon, low detail, dull colors, photorealistic, modern, sci-fi, glossy finish, abstract, childish, minimalist, futuristic design, contemporary art, rough sketch"
+    }, 
+    {
+        "prompt": "photo of TOKEN man as a majestic Norse god standing on a mountaintop, holding a glowing weapon, with lightning and storm clouds swirling in the background. Inspired by Frank Frazetta and Boris Vallejo, high detail, dynamic composition, rich colors, dramatic lighting, epic and powerful atmosphere, oil painting, mythological setting, sharp focus.",
+        "negative_prompt": "cartoon, 3d render, anime, sketch, minimalist, blocky, grainy, pastel, flat shading, low detail, soft lighting, dull colors, modern clothing, low resolution, blurred lines"
+    },
+    {
+        "prompt": "photo of TOKEN man as a whimsical forest guardian, surrounded by vibrant foliage, animals, and glowing fireflies. Art style inspired by Arthur Rackham and John Bauer, delicate linework, soft, muted colors, dreamlike, fantasy illustration, intricate details in flora and fauna, ethereal, smooth brushstrokes, focused on character and setting.",
+        "negative_prompt": "photo realistic, 3d render, gritty, dark and muted tones, harsh lines, blocky, neon colors, modern, sci-fi, flat lighting, geometric shapes, rough textures, childish, oversaturated, low detail"
+    },
+    {
+        "prompt": "photo of TOKEN man as a regal Egyptian pharaoh, seated on a golden throne, adorned with ancient jewelry and surrounded by intricate hieroglyphs. Inspired by orientalist painting and Jean-Léon Gérôme, smooth brushstrokes, realistic textures, rich colors, detailed face, traditional Egyptian motifs, symmetrical composition, strong focus on character.",
+        "negative_prompt": "cartoon, 3d render, anime, modern clothing, futuristic, neon, abstract, grayscale, pencil sketch, sketchy, blocky, glossy finish, soft and diffused lighting, grainy, low detail"
+    },
+    {
+        "prompt": "photo of TOKEN man as a Renaissance painter, standing in an ornate studio, surrounded by canvases and art tools. The style is influenced by Vermeer and Raphael, detailed clothing textures, oil painting, soft brushstrokes, warm and natural lighting, realistic proportions, full-body portrait, artstation, muted colors.",
+        "negative_prompt": "cartoon, anime, 3d render, digital art, futuristic, blocky, flat shading, modern, neon lighting, high contrast, oversaturated, childish, rough sketch, pop art, gritty"
+    },
+    {
+        "prompt": "photo of TOKEN man as an explorer from the Age of Discovery, standing aboard a wooden ship, with a telescope in hand, looking out at the horizon. Influenced by historical illustrations and maritime paintings, detailed textures, dynamic pose, realistic lighting, muted and earthy tones, full-body portrait, artstation, high detail.",
+        "negative_prompt": "cartoon, digital art, anime, 3d render, glossy, bright neon colors, oversaturated, blocky, flat shading, minimalist, childish, modern, sci-fi, photorealistic, rough sketch"
+    },
+    {
+        "prompt": "photo of TOKEN man as a jazz musician in a smoky 1920s speakeasy, playing a trumpet, surrounded by other musicians and patrons. Inspired by Edward Hopper and Al Hirschfeld, soft and diffused lighting, atmospheric background, rich and warm colors, realistic facial expressions, focus on mood, traditional painting, art deco influences.",
+        "negative_prompt": "cartoon, anime, 3d render, glowing elements, neon colors, futuristic, sci-fi, blocky, flat colors, high contrast, minimalist, digital art, childish, oversaturated, modern setting"
+    },
+    {
+        "prompt": "photo of TOKEN man as a futuristic android with sleek metallic surfaces, standing in a high-tech lab with holographic displays. Art style inspired by H. R. Giger and digital sci-fi illustrations, sharp and smooth lines, high detail, glowing elements, reflective surfaces, vibrant colors, high-tech design, sci-fi setting, artstation.",
+        "negative_prompt": "cartoon, anime, oil painting, soft brushstrokes, pastel, rough textures, blocky, gritty, vintage, realistic portrait, traditional art, old-fashioned, low detail, soft and diffused lighting, muted colors"
+    },
+    {
+        "prompt": "photo of TOKEN man as a gothic vampire lord, with a dark, brooding expression, standing in a candlelit castle, surrounded by gothic architecture. Style influenced by Gothic art and dark fantasy illustrations, dark and moody tones, intricate details, dramatic shadows, oil painting, rich textures, highly detailed clothing, realistic facial features.",
+        "negative_prompt": "cartoon, anime, 3d render, glossy finish, neon colors, sci-fi, bright lighting, abstract, blocky, sketch, flat colors, minimalist, modern clothing, soft lighting, low detail"
+    },
+    {
+        "prompt": "photo of TOKEN man as an ancient druid, standing in a mystical forest with glowing runes on trees and stones, surrounded by a magical mist. Influenced by fantasy concept art and traditional Celtic designs, high detail, earthy and green tones, intricate foliage, ethereal lighting, highly detailed, smooth brushstrokes, strong focus on nature elements.",
+        "negative_prompt": "photo realistic, 3d render, sci-fi, neon colors, harsh lines, blocky, flat shading, modern clothing, futuristic, abstract, low detail, childish, geometric shapes, bright lighting"
+    },
+    {
+        "prompt": "photo of TOKEN man as a pirate captain, standing on the deck of a pirate ship at sunset, with wind blowing through hair and tattered sails behind. Art style influenced by Howard Pyle and N. C. Wyeth, oil painting, rich textures, dynamic composition, epic and adventurous atmosphere, muted colors, high detail, realistic lighting, traditional pirate aesthetics.",
+        "negative_prompt": "cartoon, digital art, anime, 3d render, modern clothing, futuristic, flat colors, bright neon, blocky, low detail, sketchy, soft lighting, pastel colors, childish, grayscale"
+    }
+]
