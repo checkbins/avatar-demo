@@ -1,30 +1,33 @@
 from modal import App, Image as ModalImage, Mount, Volume, Secret, gpu, build, enter, method, asgi_app
 from upload import upload_image_to_azure, upload_image_to_gcp, upload_image_to_s3
 
-model_name = "black-forest-labs/FLUX.1-dev"
-class_prompt = "photo of man"
+model_names = [
+    "black-forest-labs/FLUX.1-dev", 
+    "stabilityai/stable-diffusion-3.5-large", 
+    "stabilityai/stable-diffusion-3-medium", 
+    "stabilityai/stable-diffusion-xl-base-1.0",
+    "stabilityai/stable-diffusion-1-5",
+    "SG161222/RealVisXL_V4.0",
+    "RunDiffusion/Juggernaut-XL-v6",
+    "Lykon/DreamShaper",
+    "digiplay/AbsoluteReality_v1.8.1",
+    "playgroundai/playground-v2.5-1024px-aesthetic",
+    "SG161222/Realistic_Vision_V5.1_noVAE",
 
-cloud_provider = "azure"
-cloud_container_name = "dreambooth-demo"
-
-# This is the name and key(s) of your secret in Modal
-# For Azure, you will have one, the connection string
-# For GCP, you will have one, the credentials JSON
-# For AWS, you will have two, one for the access key and one for the secret access key
-cloud_secret_name = "azure-conn-string-secret"
-cloud_secret_key = "AZURE_CONNECTION_STRING"
-cloud_secret_access_key = None # For AWS only
-
+]
+class_prompts = ["photo of man", "photo of woman"]
+dataset_names = ["_man_class_images", "_woman_class_images"]
+huggingface_username = "timlenardo"
 number_of_images = 300
 
 create_class_images_image = (
     ModalImage.from_registry(
         "nvidia/cuda:12.6.2-cudnn-devel-ubuntu22.04", add_python="3.10"
     )
-    .pip_install(["azure-storage-blob", "diffusers", "torch", "transformers", "accelerate", "sentencepiece"])
+    .pip_install(["diffusers", "torch", "transformers", "accelerate", "sentencepiece", "datasets"])
 )
 
-from azure.storage.blob import BlobServiceClient
+# from azure.storage.blob import BlobServiceClientd
 import os
 
 app = App("create-class-images", image=create_class_images_image)
@@ -33,35 +36,44 @@ app = App("create-class-images", image=create_class_images_image)
     gpu=gpu.A100(count=1, size="80GB"),
     timeout=86400,
     image=create_class_images_image,
-    secrets=[Secret.from_name(cloud_secret_name), Secret.from_name("huggingface-secret")],
+    secrets=[Secret.from_name("huggingface-secret")],
     mounts=[]
 )
 def create_class_images():
     from diffusers import DiffusionPipeline
-    import uuid
     import torch
     from huggingface_hub import login as hf_login
+    from datasets import Dataset, load_dataset, Image as DatasetImage
+    import pandas as pd
+    import uuid
 
     hf_login(token=os.environ["HF_TOKEN"])
-    pipeline = DiffusionPipeline.from_pretrained(model_name, torch_dtype=torch.float16)
-    pipeline.to("cuda")
+    for model_name in model_names:
+        try:
+            pipeline = DiffusionPipeline.from_pretrained(
+                model_name, 
+                torch_dtype=torch.float16,
+                num_inference_steps=50,  # Override the number of steps
+                guidance_scale=7.5       # Override the CFG (Classifier-Free Guidance)
+            )
+            pipeline.to("cuda")
 
-    for i in range(number_of_images):
-        image = pipeline(class_prompt, num_inference_steps=30, guidance_scale=7.5).images[0]
-        unique_filename = f"class_image_{uuid.uuid4()}.png"
-        image.save(unique_filename)
+            os.makedirs("/root/generated_images", exist_ok=True)
+            for class_prompt, dataset_name in zip(class_prompts, dataset_names):
+                image_paths = []
+                for i in range(number_of_images):
+                    image = pipeline(class_prompt, num_inference_steps=30, guidance_scale=7.5).images[0]
 
-        if cloud_provider == "azure":
-            upload_image_to_azure(unique_filename, os.environ[cloud_secret_key], cloud_container_name)
-        elif cloud_provider == "gcp":
-            # TODO: test GCP integration
-            upload_image_to_gcp(unique_filename, os.environ[cloud_secret_key], cloud_container_name)
-        elif cloud_provider == "s3":
-            # TODO: test S3 integration
-            upload_image_to_s3(unique_filename, os.environ[cloud_secret_key], os.environ[cloud_secret_access_key], cloud_container_name)
-   
-        os.remove(unique_filename)
+                    unique_filename = f"/root/generated_images/class_image_{uuid.uuid4()}.png"
+                    image.save(unique_filename)
+                    image_paths.append(unique_filename)
 
+                dataset = load_dataset("imagefolder", data_dir="/root/generated_images")
+                model_name_split = model_name.split("/")
+                model_name_last_value = model_name_split[-1]
+                dataset.push_to_hub(f"{huggingface_username}/{model_name_last_value}_{dataset_name}")
 
-
-
+                for image_path in image_paths:
+                    os.remove(image_path)
+        except Exception as e:
+            print(f"An error occurred: {e}")

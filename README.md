@@ -9,9 +9,8 @@ This demo allows you to train avatar models on top of StableDiffusion, StableDif
 To run this demo code, you'll need auth tokens (and accounts) from the following services:
 - **[Modal](www.modal.com)** - We use Modal to run the training and inference script on cloud GPUs. You can get a Modal token by signing up [here](https://modal.com/signup).
 - **[HuggingFace](www.huggingface.com)** - We use HuggingFace to download models for fine-tuning. We also upload the fine-tuned models to HuggingFace. You can get a HuggingFace token by signing up [here](https://huggingface.co/join).
-- **[Checkbin](www.checkbin.dev)** - We use Checkbin to compare the results of different models. You can get a Checkbin token by signing up [here](www.checkbin.dev/signup).
+- **[Checkbin](www.checkbin.dev)** - We use Checkbin ✅🗑️ to compare the results of different models. You can get a Checkbin token by signing up [here](www.checkbin.dev/signup).
 - **[WandB](www.wandb.ai)** (optional) - You can use WandB to track training loss. With WandB, you can also view validation images at various points in the training process. You can get a wandb token by signing up [here](https://wandb.auth0.com/login?state=hKFo2SBuZ25WcDc4YWFoZU1oNk9ZSHRXbFB6ZG54NThEeFdobqFupWxvZ2luo3RpZNkgVy1qM1d6T1ZnMTU3TmItVFA0OE5kdlgtUzVDTWRVekejY2lk2SBWU001N1VDd1Q5d2JHU3hLdEVER1FISUtBQkhwcHpJdw&client=VSM57UCwT9wbGSxKtEDGQHIKABHppzIw&protocol=oauth2&nonce=MDNvejFNNjljOUViRllhQQ%3D%3D&redirect_uri=https%3A%2F%2Fapi.wandb.ai%2Foidc%2Fcallback&response_mode=form_post&response_type=id_token&scope=openid%20profile%20email&signup=true).
-- ***[AWS](aws.amazon.com), [Azure](portal.azure.com), or [GCP](cloud.google.com)** (optional) - To create class images, you'll need a cloud storage provider. For AWS, you'll need your access key and secret key. For Azure, you'll need a connection string. For GCP you'll need your JSON credential file!
 
 Once you have tokens for each service, you'll need to add them as environment variables. Since we're running these scripts on Modal, you should add the tokens as [Modal Secrets](https://modal.com/secrets).
 
@@ -104,17 +103,24 @@ When the script finishes, you'll have a beautiful comparison grid on Checkbin. H
 
 Class images can help the model learn the difference between your object and other similar objects. For example, if your target object is a dog, it can be helpful to pass in photos of generic dogs.
 
-If you'd like to try using class images, you'll need to make some class images! You can do so with the `create_class_images.py` script. You'll need to generate these images with the model that you're planning on training on top of!
+I've created "man" and "woman" class images for a number of popular models. You can see the options in the `download_class_images.py` script. Run that script to download my premade class images!
+
+Alternatively, if you want to use a different mdoel, you'll need to make your own class images! You can do so with the `create_class_images.py` script. You should generate these images with the model that you're planning on training on top of!
 
 These are the parameters you can set in the `create_class_images.py` script:
 
-- **model_name** (ex. "stable-diffusion-v1-5/stable-diffusion-v1-5") - this is the model that you will use to generate your class images. This should be the same as the model that you plan to generate your class images with.
-- **class_prompt** (ex. "photo of a man") - the prompt you'd like to use to generate the class images. This should be "photo of a man" if your subject is a man, "a photo of a dog" if your subject is a dog, and so on.
-- **cloud_provider** (ex. "azure") - the cloud provider you want to upload the generated images to. This script supports GCP, Azure, and AWS.
-- **cloud_container_name** (ex. "dreambooth-class-images") - the name of the bucket/container that you want to upload the images to.
+- **model_names** (ex. "stable-diffusion-v1-5/stable-diffusion-v1-5") - this is an array of the models that you will use to generate your class images. These should be the same as the model that you plan to train your dreambooths on top of!
+- **class_prompts** (ex. "photo of a man") - this is an array of the prompts you'd like to use to generate the class images. This should be "photo of a man" if your subject is a man, "a photo of a dog" if your subject is a dog, and so on.
+- **dataset_names** (ex. "_man_class_images") - this is an array of is the postfixes that will be used to name your class images dataset on Huggingface. It will be appended to the name of the model you used. There should be one for each class prompt you use!
+- **huggingface_username** (ex. "timlenardo") - your huggingface username!
 - **number_of_images** (ex. 300) - the number of class images to generate. Other tutorials recommend 300, so I've used this as a default.
 
-After you've run the script and generated your class images, you'll have to download them. After downloading, put them in a folder in your project's root directory. Then the scripts can transfer your images to Modal for use during training.
+After you've set your parameters, you can run the script! You'll most likely need the '--detach' argument, as this script can take some time to complete!
+```
+modal run --detach compare_dreambooth_models.py
+```
+
+After you've run the script and generated your class images, you'll have to download them. You can download your class images with the `download_class_images.py` script mentioned above. Download the images to a local directory and set that local director as the "class_image_dir" in your training scripts. The scripts will then transfer your images to Modal for use during training!
 
 ## Acknowledgments
 This project wouldn't be possible without HuggingFace's [dreambooth training scripts](https://huggingface.co/blog/dreambooth) or Modal's infrastructure. A big thanks to the HuggingFace and Modal teams for their excellent contributions!
